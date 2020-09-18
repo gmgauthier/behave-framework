@@ -7,11 +7,15 @@ verify_ssl = true
 flask = "*"
 pytest = "*"
 behave = "*"
+selenium = "*"
+django = "*"
 
 [packages]
 flask = "*"
 pytest = "*"
 behave = "*"
+selenium = "*"
+djanjgo = "*"
 
 [requires]
 python_version = "3.8"

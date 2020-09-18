@@ -1,6 +1,8 @@
 import configparser
 import pytest
 
+import fixtures
+
 config = configparser.ConfigParser()
 
 
