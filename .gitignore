@@ -1,4 +1,8 @@
 *.lock
 *.iml
+*.pyc
+*.log
+**/.DS_Store
+**/__pycache/
 .idea/
 .vscode/
