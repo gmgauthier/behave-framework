@@ -11,7 +11,7 @@ def step_impl(context):
 @when('I navigate to test.io')
 def step_impl(context):
     context.driver.get("https://test.io")
-
+    print(context.driver.title)
 
 @then('The page is displayed')
 def step_impl(context):
