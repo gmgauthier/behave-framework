@@ -12,7 +12,7 @@ def pytest_addoption(parser):
                      action='store',
                      default='staging',
                      help='the name of the environment for which you need properties.')
-    parser.addoption('--fixtures',
+    parser.addoption('--fixture',
                      action='store',
                      default='default',
                      help='the name of the environment for which you need fixture accounts.')
@@ -32,8 +32,8 @@ def fixture_data(pytestconfig):
     """
     The fixture data items for the account under test
     """
-    env = pytestconfig.getoption("env")
-    return _read_config_section(fixtures, env)
+    #env = pytestconfig.getoption("env")
+    return _read_config_section(fixtures, "env")
 
 
 def _read_config_section(source, section):

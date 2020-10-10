@@ -22,6 +22,7 @@ class BrowserDriver:
 
 def chrome():
     options = webdriver.ChromeOptions()
+    options.headless = True
     options.add_argument('--ignore-certificate-errors')
     return webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
@@ -29,6 +30,7 @@ def chrome():
 def firefox():
     options = webdriver.FirefoxOptions()
     options.accept_insecure_certs = True
+    options.headless = True
     gecko_driver = GeckoDriverManager().install()
     return webdriver.Firefox(executable_path=gecko_driver, firefox_options=options)
 
