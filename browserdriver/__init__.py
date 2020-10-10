@@ -34,8 +34,7 @@ def firefox():
     gecko_driver = GeckoDriverManager().install()
     return webdriver.Firefox(
         executable_path=gecko_driver,
-        firefox_options=options,
-        firefox_binary="/usr/local/bin/firefox")
+        firefox_options=options)
 
 
 def edge():
