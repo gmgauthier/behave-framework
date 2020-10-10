@@ -1,15 +1,17 @@
 from browserdriver import BrowserDriver
 
 
-def setup_module(module):
-    global bd
-    bd = BrowserDriver().get("firefox")
-
-
-def teardown_module(module):
+def test_firefox_browser(headless):
+    bd = BrowserDriver().get("firefox", headless=headless)
+    bd.get('https://test.io')
+    print(bd.current_url, bd.title)
+    assert "QA Testing as a Service | test IO" == bd.title
     bd.quit()
 
 
-def test_load_browser():
+def test_chrome_browser(headless):
+    bd = BrowserDriver().get("chrome", headless=headless)
     bd.get('https://test.io')
+    print(bd.current_url, bd.title)
     assert "QA Testing as a Service | test IO" == bd.title
+    bd.quit()

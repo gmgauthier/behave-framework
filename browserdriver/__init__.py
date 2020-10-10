@@ -7,11 +7,11 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 class BrowserDriver:
     @staticmethod
-    def get(browser=None):
+    def get(browser=None, headless=True):
         if browser == "chrome":
-            return chrome()
+            return chrome(headless)
         elif browser == "firefox":
-            return firefox()
+            return firefox(headless)
         elif browser == "edge":
             return edge()
         elif browser == "safari":
@@ -20,21 +20,23 @@ class BrowserDriver:
             raise ValueError("'{}' is not a supported browser".format(browser))
 
 
-def chrome():
+def chrome(headless=True):
     options = webdriver.ChromeOptions()
-    options.headless = True
+    options.headless = headless
     options.add_argument('--ignore-certificate-errors')
-    return webdriver.Chrome(ChromeDriverManager().install(), options=options)
+    return webdriver.Chrome(
+        ChromeDriverManager().install(),
+        options=options)
 
 
-def firefox():
+def firefox(headless=True):
     options = webdriver.FirefoxOptions()
     options.accept_insecure_certs = True
-    options.headless = True
+    options.headless = headless
     gecko_driver = GeckoDriverManager().install()
     return webdriver.Firefox(
         executable_path=gecko_driver,
-        firefox_options=options)
+        options=options)
 
 
 def edge():
