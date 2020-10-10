@@ -1,8 +1,9 @@
 from selenium import webdriver
-from selenium.webdriver import DesiredCapabilities
 
+from msedge.selenium_tools import Edge, EdgeOptions
 from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
 
 
 class BrowserDriver:
@@ -13,7 +14,7 @@ class BrowserDriver:
         elif browser == "firefox":
             return firefox(headless)
         elif browser == "edge":
-            return edge()
+            return edge(headless)
         elif browser == "safari":
             return safari()
         else:
@@ -39,8 +40,13 @@ def firefox(headless=True):
         options=options)
 
 
-def edge():
-    return webdriver.Edge(DesiredCapabilities.EDGE)
+def edge(headless=True):
+    options = EdgeOptions()
+    options.use_chromium = True
+    options.headless = headless
+    edge_driver = EdgeChromiumDriverManager().install()
+    driver = Edge(edge_driver, options=options)
+    return driver
 
 
 def safari():

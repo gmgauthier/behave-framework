@@ -9,6 +9,7 @@ pytest = "*"
 behave = "*"
 selenium = "*"
 webdriver_manager = "*"
+msedge-selenium-tools = "*"
 
 [packages]
 flask = "*"
@@ -16,6 +17,7 @@ pytest = "*"
 behave = "*"
 selenium = "*"
 webdriver_manager = "*"
+msedge-selenium-tools = "*"
 
 [requires]
 python_version = "3.8"
