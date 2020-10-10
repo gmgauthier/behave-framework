@@ -32,7 +32,10 @@ def firefox():
     options.accept_insecure_certs = True
     options.headless = True
     gecko_driver = GeckoDriverManager().install()
-    return webdriver.Firefox(executable_path=gecko_driver, firefox_options=options)
+    return webdriver.Firefox(
+        executable_path=gecko_driver,
+        firefox_options=options,
+        firefox_binary="/usr/local/bin/firefox")
 
 
 def edge():
