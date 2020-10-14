@@ -23,7 +23,7 @@ def test_safari_browser(headless):
     bd.quit()
 
 
-@pytest.mark.skip(reason="inconsistent implementations across platforms")
+@pytest.mark.skip(reason="Edge has inconsistent implementations across platforms")
 def test_edge_browser(headless):
     bd = BrowserDriver().get("edge", headless=headless)
     bd.get('https://test.io')
