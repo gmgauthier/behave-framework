@@ -13,6 +13,16 @@ def step_impl(context):
     context.driver = BrowserDriver.get("chrome")
 
 
+@given(u'I have an edge driver')
+def step_impl(context):
+    context.driver = BrowserDriver.get("edge")
+
+
+@given(u'I have a safari driver')
+def step_impl(context):
+    context.driver = BrowserDriver.get("safari")
+
+
 @when('I navigate to test.io')
 def step_impl(context):
     context.driver.get("https://test.io")
